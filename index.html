@@ -6,63 +6,88 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accessible Me</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&family=Stick+No+Bills:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&family=Stick+No+Bills:wght@300&display=swap"
+    rel="stylesheet"> -->
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-  <div class="container">
-    <div class="site-header">
-      <h1>Jam Box Studios</h1>
-      <div class="main-nav">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Reservation</a></li>
-          <li><a href="#">Studio</a></li>
+  <a href="#main-content" class="skip-link">Skip to Main Content</a><!-- Skip link to the main content added -->
+  <header class="site-header" role="banner">
+    <!-- ARIA rol added to the banner -->
+      <div class="site-header">
+        <h1 class="heading" role="heading">Jam Box Studios</h1>
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+          <!-- ARIA rol added to the main nav -->
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Reservation</a></li>
+            <li><a href="#">Studio</a></li>
+          </ul>
+        </nav>
+      </div>
+      <img src="image/kitten-banner.png" aria-label="Kittent Banner Photo" alt="Kitten Banner Photo" class="banner">
+  </header>
+  <main id="main-content" class="main-content" role="main">
+    <!-- ARIA rol added to the main content -->
+    <div class="main-content-container">
+      <div class="welcome-heading" aria-labelledby="welcome-heading">
+        <!-- ARIA property added to the welcome heading -->
+        <h1 id="welcome-heading">Welcome to Jam Box</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus laboriosam praesentium nostrum ipsa
+          eveniet, officia deserunt cumque eius esse enim, ipsam accusantium autem nihil quaerat sequi perferendis optio
+          quia veritatis.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam perferendis expedita sed itaque odit ipsam
+          omnis, eos voluptates magni fugit culpa voluptatibus, inventore eaque, eligendi voluptatum! Voluptate iusto
+          error voluptatibus.</p>
+      </div>
+      <div class="owner" aria-labelledby="meet-the-owner-heading">
+        <!-- ARIA property added to the meet the owner heading -->
+        <h2 id="meet-the-owner-heading">Meet the owner</h2>
+        <ul itemscope itemtype="https://schema.org/Person">
+          <!-- Schema itemscope and itemtype added to the owner info-->
+          <li itemprop="name">Name: John Doe</li>
+          <li itemprop="jobtitle">Title: CEO</li>
+          <li itemprop="email">Email: <a href="mailto:johnjoe@jambox.ca">johnjoe@jambox.ca</a></li>
+          <li itemprop="phonenumber">Phone: <a href="tel:+16130000000">613-000-0000</a></li>
         </ul>
       </div>
-      <img src="https://placekitten.com/1200/900" class="banner">
-    </div>
-    <div class="main-content">
-      <h1>Welcome to Jam Box</h1>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus laboriosam praesentium nostrum ipsa eveniet, officia deserunt cumque eius esse enim, ipsam accusantium autem nihil quaerat sequi perferendis optio quia veritatis.</p>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam perferendis expedita sed itaque odit ipsam omnis, eos voluptates magni fugit culpa voluptatibus, inventore eaque, eligendi voluptatum! Voluptate iusto error voluptatibus.</p>
-      <div class="owner">
-        <h1>Meet the owner</h1>
-        <ul>
-          <li>Name: John Doe</li>
-          <li>Title: CEO</li>
-          <li>Email: johnjoe@jambox.ca</li>
-          <li>Phone: 613-000-0000</li>
-        </ul>
-        <h1>Address</h1>
-        <p>
+      <div class="address" aria-labelledby="address-heading">
+        <!-- ARIA property added to the meet the address heading -->
+        <h3 id="address-heading">Address</h3>
+        <section itemscope itemtype="https://schema.org/PostalAddress">
+          <!-- Schema itemscope and itemtype added to the address info-->
           Jambox Studios
-          123 Guitar Road,
-          Musicville, Danceistan
-          B3T 0L0
-        </p>
-      </div>
-      <div class="contact-section">
-        <h1>Contact Us</h1>
-        <form action="thanks.html">
-          <label>Full Name</label>
-          <input type="text" placeholder="Full Name">
-          <input type="text" placeholder="Email">
-          <input type="text" placeholder="Subject">
-          <b>Your Message</b>
-          <textarea></textarea>
-          <button type="submit">Send</button>
-        </form>
+          <span itemprop="streetAddress">123 Guitar Road,</span>
+          <span itemprop="addressLocality">Musicville,</span>
+          <span itemprop="addressCountry">Danceistan</span>
+          <span itemprop="postalCode">B3T 0L0</span>
+        </section>
       </div>
     </div>
-    <div class="site-footer">
-      &copy; 2021 Jam Box Studios
-    </div>
+  </main>
+  <div class="contact-section" aria-labelledby="contact-heading">
+    <!-- ARIA property added to the meet the contact heading -->
+    <h2 id="contact-heading">Contact Us</h2>
+    <form action="thanks.html">
+      <label for="full-name">Full Name</label>
+      <input type="text" id="full-name" name="full-name" placeholder="Full Name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="Subject" required>
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" placeholder="Your message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
   </div>
+  <footer class="site-footer" role="contentinfo">
+    <!-- ARIA rol added to the footer info -->
+    &copy; 2021 Jam Box Studios
+  </footer>
 </body>
 
 </html>

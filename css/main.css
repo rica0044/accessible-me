@@ -1,8 +1,10 @@
 body {
   font-family: 'Roboto', Helvetica, sans-serif;
-  background-color: grey;
-  margin: 0;
-  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 h1,
@@ -12,16 +14,19 @@ h4,
 h5,
 h6 {
   font-family: 'Stick No Bills', 'Roboto', Helvetica, sans-serif;
-}
-
-.container {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  color: #111;
 }
 
 img {
   width: 100%;
+}
+
+.heading {
+  display: flex;
+  padding: 2rem 1rem;
+  margin-bottom: 1px;
+  background-color: #333;
+  color: #e0dede;
 }
 
 .main-nav ul {
@@ -39,17 +44,33 @@ img {
 
 .main-nav ul li a {
   display: block;
-  color: inherit;
+  background-color: #b37d00;
+  color: #e0dede;
   text-decoration: none;
   font-size: 1.25rem;
+  padding: 0.5rem 0;
+  margin: 1px;
+}
+
+.main-nav ul li a:hover {
+  background-color: #e0dede;
+  color: #b37d00;
+
+}
+
+.owner li a {
+  color: #b37d00;
+  text-decoration-color: #b37d00;
 }
 
 form input,
 form textarea {
   display: block;
-  width: 100%;
+  width: 95%;
   margin-bottom: 1rem;
   padding: .5rem 1rem;
+  border: 1.5px solid #333;
+  border-radius: 4px;
 }
 
 form textarea {
@@ -60,12 +81,44 @@ form textarea {
 }
 
 form button {
-  background: none;
-  border: 2px solid black;
+  background: #b37d00;
+  border: none;
+  color: #f0f0f0;
   padding: 1rem;
   text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+form button:hover {
+  background: #f0f0f0;
+  color: #b37d00;
+  font-weight: 600;
+  border: 2px solid #b37d00;
+  border-radius: 4px;
 }
 
 .site-footer {
   padding: 2rem 0;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: #b37d00;
+  color: #f0f0f0;
+  padding: 8px;
+  margin-right: 10px;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
 }
